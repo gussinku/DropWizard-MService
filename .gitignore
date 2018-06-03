@@ -1,0 +1,26 @@
+#Gradle
+.gradle/
+build/
+
+# Eclipse
+.classpath
+.project
+.settings/
+bin/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+#vscode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
