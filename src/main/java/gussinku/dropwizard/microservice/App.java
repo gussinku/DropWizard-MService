@@ -13,7 +13,6 @@ public class App extends Application<Config> {
     }
 
     @Override
-
     public String getName() {
         return "hello-world";
     }
