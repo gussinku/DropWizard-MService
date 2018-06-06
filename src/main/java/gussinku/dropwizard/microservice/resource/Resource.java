@@ -11,9 +11,8 @@ import javax.ws.rs.core.MediaType;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
 
-@Path("/hellow-world")
+@Path("/hello-world")
 @Produces(MediaType.APPLICATION_JSON)
-
 public class Resource {
     private final String template;
     private final String defaultName;
@@ -28,8 +27,20 @@ public class Resource {
 
     @GET
     @Timed
-    public Saying sayHello(@QueryParam("name") Optional<String> name) {
-        final String value = String.format(template, name.orElse(defaultName));
+    @Path("/test")
+    public Saying sayHello(@QueryParam("name") Optional<String> name, @QueryParam("name23") Optional<String> maka) {
+        final String value = String.format("Chansa %s, chanda %s", name.orElse(defaultName), maka.orElse("swim"));
         return new Saying(counter.incrementAndGet(), value);
     }
+
+
+    @GET
+    @Timed
+    @Path("/test2")
+    public Saying sayHello2(@QueryParam("name") Optional<String> name, @QueryParam("name23") Optional<String> maka) {
+        final String value = String.format("lungu %s, bupe %s", name.orElse(defaultName), maka.orElse("eat"));
+        return new Saying(counter.incrementAndGet(), value);
+    }
+
+
 }
