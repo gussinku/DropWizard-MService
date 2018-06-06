@@ -15,7 +15,7 @@ public class Saying {
 
     public Saying(long id, String content) {
         this.id = id;
-        this.content = content;// Jackson deserialization‹
+        this.content = content;
     }
 
     @JsonProperty
