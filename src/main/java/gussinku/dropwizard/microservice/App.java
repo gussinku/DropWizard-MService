@@ -2,7 +2,9 @@ package gussinku.dropwizard.microservice;
 
 
 import gussinku.dropwizard.microservice.health.TemplateHealthCheck;
-import gussinku.dropwizard.microservice.resource.Resource;
+import gussinku.dropwizard.microservice.resource.CompanyProfileResource;
+import gussinku.dropwizard.microservice.resource.HelloResource;
+import gussinku.dropwizard.microservice.resource.NamwangaResource;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
@@ -24,13 +26,19 @@ public class App extends Application<Config> {
 
     @Override
     public void run(Config config, Environment environment) {
-        final Resource resource = new Resource(
+        final HelloResource helloResource = new HelloResource(
+                config.getTemplate(),
+                config.getDefaultName());
+
+        final CompanyProfileResource comResource = new CompanyProfileResource(
                 config.getTemplate(),
                 config.getDefaultName());
         final TemplateHealthCheck healthCheck =
                 new TemplateHealthCheck(config.getTemplate());
         environment.healthChecks().register("template", healthCheck);
-        environment.jersey().register(resource);
+        environment.jersey().register(helloResource);
+        environment.jersey().register(new NamwangaResource());
+        environment.jersey().register(comResource);
     }
 
 }
