@@ -1,4 +1,4 @@
-package gussinku.dropwizard.microservice.resource;
+package gussinku.dropwizard.microservice.resources;
 
 import com.codahale.metrics.annotation.Timed;
 import gussinku.dropwizard.microservice.api.Saying;

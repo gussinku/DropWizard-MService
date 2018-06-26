@@ -2,9 +2,9 @@ package gussinku.dropwizard.microservice;
 
 
 import gussinku.dropwizard.microservice.health.TemplateHealthCheck;
-import gussinku.dropwizard.microservice.resource.CompanyProfileResource;
-import gussinku.dropwizard.microservice.resource.HelloResource;
-import gussinku.dropwizard.microservice.resource.NamwangaResource;
+import gussinku.dropwizard.microservice.resources.CompanyProfileResource;
+import gussinku.dropwizard.microservice.resources.HelloResource;
+import gussinku.dropwizard.microservice.resources.NamwangaResource;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
