@@ -2,16 +2,35 @@ package gussinku.dropwizard.microservice.api;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Form {
+import javax.validation.constraints.NotNull;
+
+public class CompanyForm {
     @JsonProperty
     private String name;
+
+    @NotNull
     @JsonProperty
-    private int age;
+    private int id;
+
     @JsonProperty
     private String email;
+
     @JsonProperty
     private String personalsDescription;
 
+    public CompanyForm() {
+        //// Jackson deserialization
+    }
+
+    /**
+     * public CompanyForm(int id, String name, String email, String personalsDescription){
+     * this.id = id;
+     * this.name = name;
+     * this.email = email;
+     * this.personalsDescription= personalsDescription;
+     * <p>
+     * }
+     **/
 
     public String getName() {
         return name;
@@ -21,12 +40,12 @@ public class Form {
         this.name = name;
     }
 
-    public int getAge() {
-        return age;
+    public int getId() {
+        return id;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getEmail() {

@@ -1,7 +1,7 @@
 package gussinku.dropwizard.microservice.resources;
 
 import com.codahale.metrics.annotation.Timed;
-import gussinku.dropwizard.microservice.api.Form;
+import gussinku.dropwizard.microservice.api.CompanyForm;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -42,7 +42,7 @@ public class NamwangaResource {
     @POST
     @Path("/receive")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Form receiveForm(Form receive) {
+    public CompanyForm receiveForm(CompanyForm receive) {
         return receive;
     }
 
