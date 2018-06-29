@@ -22,15 +22,14 @@ public class CompanyForm {
         //// Jackson deserialization
     }
 
-    /**
-     * public CompanyForm(int id, String name, String email, String personalsDescription){
-     * this.id = id;
-     * this.name = name;
-     * this.email = email;
-     * this.personalsDescription= personalsDescription;
-     * <p>
-     * }
-     **/
+
+    public CompanyForm(int id, String name, String email, String personalsDescription) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.personalsDescription = personalsDescription;
+
+    }
 
     public String getName() {
         return name;
