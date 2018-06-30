@@ -50,6 +50,7 @@ public class App extends Application<Config> {
                 config.getDefaultName());
         final TemplateHealthCheck healthCheck =
                 new TemplateHealthCheck(config.getTemplate());
+
         environment.healthChecks().register("template", healthCheck);
         environment.jersey().register(helloResource);
         environment.jersey().register(new NamwangaResource());

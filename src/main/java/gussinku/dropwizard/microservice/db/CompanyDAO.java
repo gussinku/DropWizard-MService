@@ -16,7 +16,7 @@ import java.util.List;
 public interface CompanyDAO {
 
 
-    @SqlUpdate("create table company (id int primary key, name varchar(100), email varchar(20), " +
+    @SqlUpdate("create table if not exists company (id int primary key, name varchar(100), email varchar(20), " +
             "personalsDescription varchar(100))")
     void createTable();
 

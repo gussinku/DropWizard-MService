@@ -11,7 +11,6 @@ import java.util.List;
 @Path("/")
 public class CompanyResource {
 
-
     private final CompanyDAO dao;
 
     public CompanyResource(CompanyDAO dao) {
@@ -26,6 +25,7 @@ public class CompanyResource {
     public CompanyForm save(CompanyForm form) {
         dao.insert(form.getId(), form.getName(), form.getPersonalsDescription(), form.getEmail());//save
         return dao.findById(form.getId());
+        //update need as new contract
     }
 
     @GET
@@ -34,6 +34,15 @@ public class CompanyResource {
     public List<CompanyForm> companyList() {
         return dao.listOfCompany();
     }
+
+    @GET
+    @Path("/company/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public CompanyForm getCompany(@PathParam("id") int id) {
+        return dao.findById(id);
+
+    }
+    /**delete method*/
 
 
 }
