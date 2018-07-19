@@ -36,7 +36,7 @@ public class App extends Application<Config> {
 
         final CompanyDAO companyDAO = jdbi.onDemand(CompanyDAO.class);
 
-        companyDAO.createTable();//creating table
+        companyDAO.createTable();//creating table from this point
 
         final CompanyResource companyResource = new CompanyResource(companyDAO);
 

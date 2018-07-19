@@ -13,6 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+
 public interface CompanyDAO {
 
 
@@ -24,15 +25,22 @@ public interface CompanyDAO {
     void insert(@Bind("id") int id, @Bind("name") String name, @Bind("personalsDescription") String personalsDescription, @Bind("email") String email);
 
     @SqlQuery("select name from company where id = :id")
-    String findNameById(@Bind("id") int id);
+    CompanyForm findNameById(@Bind("id") int id);
 
     @SqlQuery("select * from company where id = :id")
     @Mapper(CompanyFormMapper.class)
     CompanyForm findById(@Bind("id") int id);
 
-    @SqlQuery("select * from company")
+    @SqlQuery("select name,email from company where id = :id")
+    @Mapper(CompanyFormMapper.class)
+    CompanyForm findNameEmailById(@Bind("id") int id);
+
+    @SqlQuery("select id, name,personalsDescription,email as TITLE from company")
     @Mapper(CompanyFormMapper.class)
     List<CompanyForm> listOfCompany();
+
+    @SqlUpdate("delete from company where id = :id")
+    void delete(@Bind("id") int id);
 
     class CompanyFormMapper implements ResultSetMapper<CompanyForm> {
 

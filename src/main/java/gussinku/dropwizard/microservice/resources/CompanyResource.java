@@ -7,6 +7,7 @@ import gussinku.dropwizard.microservice.db.CompanyDAO;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
+import java.util.Optional;
 
 @Path("/")
 public class CompanyResource {
@@ -39,10 +40,44 @@ public class CompanyResource {
     @Path("/company/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public CompanyForm getCompany(@PathParam("id") int id) {
-        return dao.findById(id);
+        final Optional<CompanyForm> company = Optional.ofNullable(dao.findById(id));
+        if (!company.isPresent()) {
+            throw new NotFoundException("OOps Kumboy !!No such user");
+        }
+        return company.get();
+    }
+
+    /**
+     * just to demonstration how class mappers with sql works with missing entities
+     */
+    @GET
+    @Path("/companyName/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public CompanyForm getCompanyName(@PathParam("id") int id) {
+        return dao.findNameById(id);
 
     }
-    /**delete method*/
+
+    /**
+     * just to demonstration how class mappers with sql works with missing entities
+     */
+    @GET
+    @Path("/companyEmail/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public CompanyForm getCompanyNameEmail(@PathParam("id") int id) {
+        return dao.findNameEmailById(id);
+
+    }
+
+    /**
+     * delete method
+     */
+    @DELETE
+    @Path("/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public void deleteMe(@PathParam("id") int id) {
+        dao.delete(id);
+    }
 
 
 }
