@@ -1,3 +1,8 @@
+/**
+ * This object provides a
+ * data access for company
+ */
+
 package gussinku.dropwizard.microservice.db;
 
 
@@ -41,6 +46,9 @@ public interface CompanyDAO {
 
     @SqlUpdate("delete from company where id = :id")
     void delete(@Bind("id") int id);
+
+    @SqlUpdate("update company set name = :name, email = :email, personalsDescription = :personalsDescription where id = :id")
+    void update(CompanyForm alter);
 
     class CompanyFormMapper implements ResultSetMapper<CompanyForm> {
 

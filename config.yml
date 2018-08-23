@@ -3,6 +3,8 @@ defaultName: Kundananji
 
 database:
   # the name of your JDBC driver
+  #driverClass: "oracle.jdbc.OracleDriver"
+  #driverClass: "oracle.jdbc.driver.OracleDriver"
   driverClass: "org.h2.Driver"
 
   # the username
@@ -12,6 +14,8 @@ database:
   password: ""
 
   # the JDBC URL
+  #jdbc:oracle:thin:@//host:port/service
+  # url: "jdbc:oracle:thin:@//osrv2.du.se:1516/osrvdb"
   url: "jdbc:h2:/Users/kundananji/Documents/workspace/DropWizard/database:testDb"
 
   # any properties specific to your JDBC driver:

@@ -48,7 +48,8 @@ public class CompanyResource {
     }
 
     /**
-     * just to demonstration how class mappers with sql works with missing entities
+     * just to demonstration how class mappers with
+     * sql works with missing entities
      */
     @GET
     @Path("/companyName/{id}")
@@ -59,7 +60,8 @@ public class CompanyResource {
     }
 
     /**
-     * just to demonstration how class mappers with sql works with missing entities
+     * just to demonstration how class mappers
+     * with sql works with missing entities
      */
     @GET
     @Path("/companyEmail/{id}")
@@ -78,6 +80,16 @@ public class CompanyResource {
     public void deleteMe(@PathParam("id") int id) {
         dao.delete(id);
     }
+
+    @PUT
+    @Path("/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public CompanyForm updateComapany(@PathParam("id") int id, CompanyForm alter) {
+        if (id == alter.getId())
+            dao.update(alter);
+        return alter;
+    }
+
 
 
 }
