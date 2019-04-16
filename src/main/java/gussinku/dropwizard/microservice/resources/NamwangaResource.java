@@ -8,7 +8,7 @@ import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-
+//dropwizard is simple and good
 @Path("")
 @Produces(MediaType.APPLICATION_JSON)
 public class NamwangaResource {
